@@ -1,3 +1,5 @@
+import { config } from './config.js';
+
 export const dataProcessor = {
     createAdjacencyMatrix(nodes, links) {
         const matrix = Array(nodes.length).fill().map(() => Array(nodes.length).fill(0));
@@ -16,14 +18,15 @@ export const dataProcessor = {
             q3: d3.quantile(nonZeroValues, 0.75)
         };
 
+        // Use our color system's opacity levels for better visual consistency
         const colorScale = d3.scaleQuantile()
-            .domain([0, quartiles.q1, quartiles.q2, quartiles.q3, d3.max(nonZeroValues)])
+            .domain([0, quartiles.q1, quartiles.q2, quartiles.q3, maxValue])
             .range([
-                d3.interpolateBlues(0.1),
-                d3.interpolateBlues(0.3),
-                d3.interpolateBlues(0.5),
-                d3.interpolateBlues(0.7),
-                d3.interpolateBlues(0.9)
+                config.colors.filled(Number(getComputedStyle(document.documentElement).getPropertyValue('--opacity-faint'))),
+                config.colors.filled(Number(getComputedStyle(document.documentElement).getPropertyValue('--opacity-light'))),
+                config.colors.filled(Number(getComputedStyle(document.documentElement).getPropertyValue('--opacity-medium'))),
+                config.colors.filled(Number(getComputedStyle(document.documentElement).getPropertyValue('--opacity-default'))),
+                config.colors.filled(Number(getComputedStyle(document.documentElement).getPropertyValue('--opacity-full')))
             ]);
 
         return { maxValue, colorScale };
