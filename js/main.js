@@ -43,7 +43,7 @@ function loadDataset(datasetKey) {
     loadingIndicator.style("display", "flex");
     
     // Load the selected dataset
-    d3.json(dataset.file)
+    d3.json(`data/${dataset.file}`)
         .then(data => {
             if (!data) throw new Error('No data received');
             

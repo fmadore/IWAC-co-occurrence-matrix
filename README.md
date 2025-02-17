@@ -1,20 +1,43 @@
-# IWAC Co-occurrence Matrix Visualization
+# Co-occurrence Matrix Visualization
 
-An interactive visualization tool that displays term co-occurrences in newspaper articles using a matrix representation. The visualization allows users to explore how frequently terms appear together at different textual levels (article, paragraph, or sentence).
+An interactive visualization tool that displays term co-occurrences in newspaper articles across different Islamic organizations in West Africa.
 
 ## Features
 
-- Interactive matrix visualization of term co-occurrences
-- Multiple window types (article, paragraph, sentence) for co-occurrence analysis
-- Dynamic ordering options:
-  - Name: Alphabetical ordering of terms
-  - Frequency: Ordering by total co-occurrence frequency (descending)
+- Interactive co-occurrence matrix visualization
+- Multiple dataset support for different organizations:
+  - Union Islamique du Bénin
+  - Conseil National Islamique
+  - Conseil Supérieur des Imams, des Mosquées et des Affaires islamiques
+  - Conseil Supérieur Islamique
+  - Fédération des Associations Islamiques du Burkina
+  - Union Musulmane du Togo
+- Different window type options (article, paragraph, sentence)
+- Multiple sorting options (by name or frequency)
 - Interactive tooltips showing co-occurrence details
-- Responsive highlighting of matrix cells and labels
-- Color-coded visualization based on co-occurrence frequency
-- Cross-browser compatible styling
-- Consistent typography with CSS custom properties
-- Responsive design with utility-first CSS
+- Responsive design with automatic sizing
+- Accessible interface with ARIA attributes
+
+## Usage
+
+1. Select an organization from the dropdown menu to load its co-occurrence data
+2. Choose a window type to see how terms co-occur within:
+   - Articles
+   - Paragraphs
+   - Sentences
+3. Sort the matrix by:
+   - Name (alphabetically)
+   - Frequency (most frequent terms first)
+4. Hover over cells to see detailed co-occurrence information
+5. Click on row/column labels to highlight specific terms
+
+## Technical Details
+
+- Built with D3.js for visualization
+- Modular JavaScript architecture
+- CSS utility classes for consistent styling
+- Responsive design that adapts to different screen sizes
+- Data stored in JSON format in the `data` folder
 
 ## Project Structure
 
@@ -153,29 +176,6 @@ The matrix visualization includes specialized utility classes:
    ```
 
 3. Open your browser and navigate to `http://localhost:8000`
-
-## Usage
-
-1. Select a window type (article, paragraph, or sentence) to view co-occurrences at different textual levels
-2. Use the ordering options to organize the matrix:
-   - Name: Orders terms alphabetically
-   - Frequency: Orders terms by their total co-occurrence frequency (highest to lowest)
-3. Hover over cells to see detailed co-occurrence information
-4. Observe highlighted rows and columns for better pattern recognition
-
-## Data Format
-
-The visualization expects a JSON file with the following structure:
-```json
-{
-  "article": {
-    "nodes": [{ "id": number, "name": string }],
-    "links": [{ "source": number, "target": number, "value": number }]
-  },
-  "paragraph": { ... },
-  "sentence": { ... }
-}
-```
 
 ## Browser Compatibility
 
