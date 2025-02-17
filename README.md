@@ -14,6 +14,7 @@ An interactive visualization tool that displays term co-occurrences in newspaper
 - Color-coded visualization based on co-occurrence frequency
 - Cross-browser compatible styling
 - Consistent typography with CSS custom properties
+- Responsive design with utility-first CSS
 
 ## Project Structure
 
@@ -39,6 +40,16 @@ IWAC-co-occurrence-matrix/
 │   ├── layout.css          # Spacing and structural styles
 │   ├── animations.css      # Animations and transitions
 │   │
+│   ├── Utilities:
+│   ├── utilities/
+│   │   ├── display.css     # Display and flexbox utilities
+│   │   ├── spacing.css     # Margin and padding utilities
+│   │   ├── text.css        # Typography utilities
+│   │   ├── visual.css      # Borders, backgrounds, shadows
+│   │   ├── layout.css      # Positioning and dimensions
+│   │   ├── interaction.css # Visibility and interactions
+│   │   └── matrix.css      # Matrix-specific utilities
+│   │
 │   ├── Components:
 │   ├── base.css            # Base styles and layout
 │   ├── matrix.css          # Matrix-specific styles
@@ -46,6 +57,77 @@ IWAC-co-occurrence-matrix/
 │   └── scrollbar.css       # Cross-browser scrollbar styles
 ├── index.html             # Main HTML file
 └── README.md              # Project documentation
+```
+
+## CSS Architecture
+
+The project follows a utility-first CSS architecture with a modular design system:
+
+### Design Tokens
+- `colors.css`: Color system with semantic variables
+- `typography.css`: Typography scale and text styles
+- `layout.css`: Spacing, sizing, and layout tokens
+- `animations.css`: Animation durations and timing functions
+
+### Utility Modules
+1. **Display (`utilities/display.css`)**
+   - Display properties
+   - Flexbox utilities
+   
+2. **Spacing (`utilities/spacing.css`)**
+   - Margin utilities
+   - Padding utilities
+   
+3. **Typography (`utilities/text.css`)**
+   - Text alignment
+   - Font sizes
+   - Font weights
+   - Text colors
+   
+4. **Visual (`utilities/visual.css`)**
+   - Borders and radius
+   - Backgrounds
+   - Shadows
+   
+5. **Layout (`utilities/layout.css`)**
+   - Positioning
+   - Width and height
+   - Z-index layers
+   - Overflow behavior
+   
+6. **Interaction (`utilities/interaction.css`)**
+   - Visibility states
+   - Pointer events
+   - Transitions
+   
+7. **Matrix (`utilities/matrix.css`)**
+   - Matrix-specific sizing
+   - Matrix spacing
+   - Responsive adaptations
+   - Layout presets
+
+### Matrix-Specific Utilities
+
+The matrix visualization includes specialized utility classes:
+
+```css
+/* Size variations */
+.matrix-cell-sm
+.matrix-cell-md
+.matrix-cell-lg
+
+/* Layout presets */
+.matrix-compact
+.matrix-normal
+.matrix-expanded
+
+/* Responsive behavior */
+.matrix-responsive
+.matrix-auto-scroll
+
+/* Density options */
+.matrix-dense
+.matrix-sparse
 ```
 
 ## Dependencies
@@ -81,57 +163,6 @@ IWAC-co-occurrence-matrix/
 3. Hover over cells to see detailed co-occurrence information
 4. Observe highlighted rows and columns for better pattern recognition
 
-## Code Organization
-
-### JavaScript Modules
-- `config.js`: Contains all configuration parameters for the visualization
-- `utils.js`: General utility functions for error handling and size calculations
-- `dataProcessor.js`: Functions for processing and transforming the co-occurrence data
-- `visualComponents.js`: Reusable D3.js visualization components
-- `cellInteractions.js`: Handlers for cell hover and highlight interactions
-- `sortingUtils.js`: Matrix sorting algorithms and utilities
-- `MatrixVisualization.js`: Main class orchestrating the visualization
-- `main.js`: Application initialization and setup
-
-### CSS Modules
-
-#### Design Tokens
-- `colors.css`: Color system with CSS custom properties
-  - Base colors
-  - Text colors
-  - Interactive states
-  - Visualization-specific colors
-- `typography.css`: Typography system
-  - Font families
-  - Font sizes
-  - Font weights
-  - Line heights
-- `layout.css`: Layout and spacing system
-  - Spacing scale
-  - Container sizes
-  - Border radius
-  - Shadows
-- `animations.css`: Animation system
-  - Durations
-  - Timing functions
-  - Common animations
-  - Transition utilities
-
-#### Components
-- `base.css`: Base styles and layout
-- `matrix.css`: Matrix visualization styles
-- `tooltip.css`: Tooltip styling
-- `scrollbar.css`: Cross-browser scrollbar styles
-
-This modular CSS architecture follows these principles:
-- Design tokens are separated from component styles
-- Variables are organized by purpose
-- Components use design token variables
-- Clear separation of concerns
-- Easy to maintain and scale
-- Consistent naming conventions
-- Reusable utility classes
-
 ## Data Format
 
 The visualization expects a JSON file with the following structure:
@@ -152,3 +183,11 @@ The visualization is compatible with:
 - Modern browsers (Chrome, Firefox, Edge, Safari)
 - Includes fallbacks for scrollbar styling across different browsers
 - Responsive design that works on different screen sizes
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
