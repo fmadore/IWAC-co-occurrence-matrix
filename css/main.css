@@ -5,6 +5,7 @@
 @import 'typography.css';
 @import 'layout.css';
 @import 'animations.css';
+@import 'utilities.css';
 
 /* Component styles */
 @import 'base.css';
