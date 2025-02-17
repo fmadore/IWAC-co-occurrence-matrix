@@ -25,23 +25,19 @@
 
 /* Matrix labels */
 .label {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     fill: #333;
-    font-weight: 500;
     transition: all 0.2s ease-in-out;
     dominant-baseline: middle;
 }
 
 /* Row labels */
 .row text {
-    font-size: 11px;
     text-anchor: end;
     transition: all 0.2s ease;
 }
 
 /* Column labels */
 .column text {
-    font-size: 11px;
     text-anchor: start;
     transform-origin: 0 0;
     transition: all 0.2s ease;

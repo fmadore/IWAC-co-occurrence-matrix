@@ -13,6 +13,7 @@ An interactive visualization tool that displays term co-occurrences in newspaper
 - Responsive highlighting of matrix cells and labels
 - Color-coded visualization based on co-occurrence frequency
 - Cross-browser compatible styling
+- Consistent typography with CSS custom properties
 
 ## Project Structure
 
@@ -31,6 +32,7 @@ IWAC-co-occurrence-matrix/
 │   └── main.js             # Application entry point
 ├── css/
 │   ├── main.css            # Main CSS file importing all modules
+│   ├── typography.css      # Typography system and variables
 │   ├── base.css            # Base styles and layout
 │   ├── matrix.css          # Matrix-specific styles
 │   ├── tooltip.css         # Tooltip styles
@@ -86,6 +88,11 @@ IWAC-co-occurrence-matrix/
 
 ### CSS Modules
 - `main.css`: Imports and organizes all CSS modules
+- `typography.css`: Typography system with CSS custom properties
+  - Font families
+  - Font sizes
+  - Font weights
+  - Line heights
 - `base.css`: Base styles for layout and typography
 - `matrix.css`: Styles specific to the matrix visualization
 - `tooltip.css`: Tooltip styling and animations

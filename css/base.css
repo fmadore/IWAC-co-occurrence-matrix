@@ -16,7 +16,7 @@
 
 .description p {
     color: #666;
-    line-height: 1.5;
+    line-height: var(--line-height-relaxed);
 }
 
 /* Form controls */
@@ -37,5 +37,5 @@
 
 select {
     padding: 5px 10px;
-    font-size: 14px;
+    font-size: var(--font-size-md);
 } 
