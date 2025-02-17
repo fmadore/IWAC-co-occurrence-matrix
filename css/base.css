@@ -34,7 +34,8 @@
 
 /* Form controls */
 #window-type,
-#order {
+#order,
+.inline-select {
     display: inline-block;
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: inherit;
@@ -43,10 +44,13 @@
     background: transparent;
     cursor: pointer;
     transition: var(--transition-fast);
+    margin: 0 var(--spacing-xs);
+    vertical-align: baseline;
 }
 
 #window-type:hover,
-#order:hover {
+#order:hover,
+.inline-select:hover {
     border-color: var(--color-border-hover);
 }
 

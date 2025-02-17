@@ -15,7 +15,21 @@ export const config = {
         highlight: getComputedStyle(document.documentElement).getPropertyValue('--color-highlight').trim(),
         dimmed: getComputedStyle(document.documentElement).getPropertyValue('--color-dimmed').trim()
     },
-    dataUrl: './data/cooccurrence.json',
+    datasets: {
+        article: {
+            sourceType: "newspaper articles",
+            title: "intégrisme",
+            file: "data/cooccurrence.json"
+        },
+        // Add more datasets here as needed
+        // example:
+        // twitter: {
+        //     sourceType: "Twitter posts",
+        //     title: "Climate Change Discussion",
+        //     file: "data/twitter_cooccurrence.json"
+        // }
+    },
+    defaultDataset: "article",
     transition: {
         duration: Number(getComputedStyle(document.documentElement).getPropertyValue('--duration-normal').replace('ms', '')),
         ease: getComputedStyle(document.documentElement).getPropertyValue('--ease-default').trim()
