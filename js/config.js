@@ -1,9 +1,9 @@
 export const config = {
     margin: {
-        top: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-top').replace('px', '')),
-        right: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-right').replace('px', '')),
-        bottom: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-bottom').replace('px', '')),
-        left: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-left').replace('px', ''))
+        top: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-top').replace('px', '')) || 100,
+        right: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-right').replace('px', '')) || 20,
+        bottom: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-bottom').replace('px', '')) || 10,
+        left: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-left').replace('px', '')) || 120
     },
     cellSize: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-cell-size').replace('px', '')),
     cellPadding: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-cell-padding').replace('px', '')),

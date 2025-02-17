@@ -13,7 +13,7 @@
     --matrix-cell-padding: 3px;
     
     /* Matrix margins */
-    --matrix-margin-top: 220px;    /* Space for rotated labels */
+    --matrix-margin-top: 100px;    /* Reduced from 220px for better space utilization */
     --matrix-margin-right: 20px;
     --matrix-margin-bottom: 10px;
     --matrix-margin-left: 120px;
@@ -63,4 +63,6 @@
     margin: var(--spacing-xl) auto;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
+    max-height: 80vh; /* Add max-height to prevent overflow */
+    overflow: auto;
 } 
