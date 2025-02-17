@@ -5,8 +5,8 @@ export const config = {
         bottom: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-bottom').replace('px', '')),
         left: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-left').replace('px', ''))
     },
-    cellSize: 16,
-    cellPadding: 3,
+    cellSize: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-cell-size').replace('px', '')),
+    cellPadding: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-cell-padding').replace('px', '')),
     maxOpacity: getComputedStyle(document.documentElement).getPropertyValue('--opacity-full').trim() || 1.0,
     minOpacity: getComputedStyle(document.documentElement).getPropertyValue('--opacity-light').trim() || 0.3,
     colors: {

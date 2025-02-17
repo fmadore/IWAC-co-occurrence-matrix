@@ -22,6 +22,16 @@
     stroke: var(--color-cell-stroke);
     stroke-width: 0.5px;
     transition: var(--transition-matrix);
+    width: var(--matrix-cell-size);
+    height: var(--matrix-cell-size);
+}
+
+.cell + .cell {
+    margin-left: var(--matrix-cell-padding);
+}
+
+.row + .row {
+    margin-top: var(--matrix-cell-padding);
 }
 
 /* Cell states */
