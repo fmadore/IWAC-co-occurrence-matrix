@@ -89,8 +89,8 @@ export class MatrixVisualization {
         // Row labels
         svg.selectAll(".row")
             .append("text")
-            .attr("class", d => `label row-label-${nodes.indexOf(d)} font-sm text-primary transition-default`)
-            .attr("x", -8)
+            .attr("class", d => `label row-label-${nodes.indexOf(d)} font-xs text-primary transition-default`)
+            .attr("x", -6)
             .attr("y", config.cellSize / 2)
             .attr("text-anchor", "end")
             .attr("alignment-baseline", "middle")
@@ -98,19 +98,20 @@ export class MatrixVisualization {
 
         // Column labels container with utility classes
         const columnLabelsGroup = svg.append("g")
-            .attr("class", "column-labels transition-default matrix-margin-md");
+            .attr("class", "column-labels transition-default")
+            .attr("transform", `translate(0, ${-config.margin.top * 0.25})`);
 
         // Column labels
         columnLabelsGroup.selectAll(".column-label")
             .data(nodes)
             .enter()
             .append("text")
-            .attr("class", (d, i) => `label col-label-${i} font-sm text-primary transition-default`)
+            .attr("class", (d, i) => `label col-label-${i} font-xs text-primary transition-default`)
             .attr("x", (d, i) => i * (config.cellSize + config.cellPadding) + config.cellSize / 2)
-            .attr("y", -6)
+            .attr("y", -4)
             .attr("transform", (d, i) => {
                 const x = i * (config.cellSize + config.cellPadding) + config.cellSize / 2;
-                return `rotate(-35,${x},-6)`;
+                return `rotate(-35,${x},-4)`;
             })
             .attr("text-anchor", "end")
             .attr("dy", ".2em")
