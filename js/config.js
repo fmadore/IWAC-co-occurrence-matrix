@@ -21,13 +21,11 @@ export const config = {
             title: "intégrisme",
             file: "data/cooccurrence.json"
         },
-        // Add more datasets here as needed
-        // example:
-        // twitter: {
-        //     sourceType: "Twitter posts",
-        //     title: "Climate Change Discussion",
-        //     file: "data/twitter_cooccurrence.json"
-        // }
+        benin: {
+            sourceType: "newspaper articles",
+            title: "Union Islamique du Bénin",
+            file: "data/cooccurrence_Union_Islamique_du_Bénin.json"
+        }
     },
     defaultDataset: "article",
     transition: {
