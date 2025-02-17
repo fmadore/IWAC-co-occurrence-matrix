@@ -17,6 +17,7 @@ An interactive visualization tool that displays term co-occurrences in newspaper
 - Interactive tooltips showing co-occurrence details
 - Responsive design with automatic sizing
 - Accessible interface with ARIA attributes
+- Download visualization as SVG
 
 ## Usage
 
@@ -30,6 +31,7 @@ An interactive visualization tool that displays term co-occurrences in newspaper
    - Frequency (most frequent terms first)
 4. Hover over cells to see detailed co-occurrence information
 5. Click on row/column labels to highlight specific terms
+6. Download the visualization using the "Download SVG" button
 
 ## Technical Details
 
@@ -46,11 +48,12 @@ IWAC-co-occurrence-matrix/
 ├── data/                   # JSON data files for each organization
 ├── js/
 │   ├── config.js          # Configuration settings
-│   ├── utils.js           # Utility functions
+│   ├── utils.js           # General utility functions
 │   ├── dataProcessor.js   # Data processing functions
 │   ├── visualComponents.js # D3.js visualization components
 │   ├── cellInteractions.js # Cell interaction handlers
 │   ├── sortingUtils.js    # Matrix sorting functionality
+│   ├── downloadUtils.js   # Download functionality
 │   ├── MatrixVisualization.js # Main visualization class
 │   └── main.js           # Application entry point
 ├── css/
@@ -68,6 +71,7 @@ IWAC-co-occurrence-matrix/
 │       ├── text.css      # Typography utilities
 │       ├── visual.css    # Borders, backgrounds, shadows
 │       ├── interaction.css # Visibility and interactions
+│       ├── button.css    # Button styles and variants
 │       └── matrix.css    # Matrix-specific utilities
 ├── index.html           # Main HTML file
 └── README.md            # Project documentation
@@ -93,7 +97,21 @@ Located in the `utilities/` directory:
 - `text.css`: Typography utilities
 - `visual.css`: Borders, backgrounds, shadows
 - `interaction.css`: Visibility and interactions
+- `button.css`: Button styles and variants
 - `matrix.css`: Matrix-specific utilities
+
+## JavaScript Modules
+
+The application is organized into focused modules:
+- `config.js`: Configuration and settings
+- `utils.js`: General utility functions
+- `dataProcessor.js`: Data transformation and processing
+- `visualComponents.js`: Reusable D3.js components
+- `cellInteractions.js`: Matrix cell interactions
+- `sortingUtils.js`: Matrix sorting algorithms
+- `downloadUtils.js`: SVG download functionality
+- `MatrixVisualization.js`: Core visualization logic
+- `main.js`: Application initialization
 
 ## Dependencies
 
