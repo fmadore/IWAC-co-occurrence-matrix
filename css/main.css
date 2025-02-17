@@ -1,5 +1,12 @@
-/* Import all CSS modules */
+/* Import CSS modules in order of specificity */
+
+/* Design tokens and utilities first */
+@import 'colors.css';
 @import 'typography.css';
+@import 'layout.css';
+@import 'animations.css';
+
+/* Component styles */
 @import 'base.css';
 @import 'matrix.css';
 @import 'tooltip.css';

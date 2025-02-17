@@ -1,0 +1,56 @@
+/* Layout system variables */
+:root {
+    /* Spacing scale */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 20px;
+    --spacing-2xl: 30px;
+    
+    /* Container widths */
+    --container-max-width: 1200px;
+    
+    /* Border radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px var(--color-shadow);
+    --shadow-md: 0 2px 8px var(--color-shadow);
+    
+    /* Z-index layers */
+    --z-index-tooltip: 1000;
+}
+
+/* Container layouts */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+/* Spacing utilities */
+.margin-bottom-sm {
+    margin-bottom: var(--spacing-sm);
+}
+
+.margin-bottom-md {
+    margin-bottom: var(--spacing-md);
+}
+
+.margin-bottom-lg {
+    margin-bottom: var(--spacing-lg);
+}
+
+.margin-bottom-xl {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Matrix layout */
+.matrix-container {
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+} 

@@ -1,0 +1,38 @@
+/* Color system variables */
+:root {
+    /* Base colors */
+    --color-primary: #2171b5;
+    --color-secondary: #666;
+    --color-background: #fff;
+    --color-surface: #f8f9fa;
+    
+    /* Text colors */
+    --color-text-primary: #333;
+    --color-text-secondary: #666;
+    --color-text-light: #fff;
+    
+    /* Border colors */
+    --color-border: #ddd;
+    --color-border-hover: #333;
+    
+    /* Interactive states */
+    --color-hover: rgba(0, 0, 0, 0.1);
+    --color-active: rgba(0, 0, 0, 0.2);
+    
+    /* Tooltip colors */
+    --color-tooltip-bg: rgba(0, 0, 0, 0.9);
+    --color-tooltip-bg-light: rgba(0, 0, 0, 0.8);
+    
+    /* Shadow colors */
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-shadow-dark: rgba(0, 0, 0, 0.2);
+    
+    /* Matrix specific */
+    --color-cell-empty: var(--color-surface);
+    --color-cell-stroke: var(--color-background);
+    --color-cell-hover-stroke: var(--color-text-primary);
+    
+    /* Visualization colors */
+    --color-highlight: var(--color-primary);
+    --color-dimmed: #999;
+} 

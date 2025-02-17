@@ -32,7 +32,14 @@ IWAC-co-occurrence-matrix/
 │   └── main.js             # Application entry point
 ├── css/
 │   ├── main.css            # Main CSS file importing all modules
-│   ├── typography.css      # Typography system and variables
+│   │
+│   ├── Design Tokens:
+│   ├── colors.css          # Color system and themes
+│   ├── typography.css      # Typography system
+│   ├── layout.css          # Spacing and structural styles
+│   ├── animations.css      # Animations and transitions
+│   │
+│   ├── Components:
 │   ├── base.css            # Base styles and layout
 │   ├── matrix.css          # Matrix-specific styles
 │   ├── tooltip.css         # Tooltip styles
@@ -87,16 +94,43 @@ IWAC-co-occurrence-matrix/
 - `main.js`: Application initialization and setup
 
 ### CSS Modules
-- `main.css`: Imports and organizes all CSS modules
-- `typography.css`: Typography system with CSS custom properties
+
+#### Design Tokens
+- `colors.css`: Color system with CSS custom properties
+  - Base colors
+  - Text colors
+  - Interactive states
+  - Visualization-specific colors
+- `typography.css`: Typography system
   - Font families
   - Font sizes
   - Font weights
   - Line heights
-- `base.css`: Base styles for layout and typography
-- `matrix.css`: Styles specific to the matrix visualization
-- `tooltip.css`: Tooltip styling and animations
-- `scrollbar.css`: Cross-browser compatible scrollbar styling
+- `layout.css`: Layout and spacing system
+  - Spacing scale
+  - Container sizes
+  - Border radius
+  - Shadows
+- `animations.css`: Animation system
+  - Durations
+  - Timing functions
+  - Common animations
+  - Transition utilities
+
+#### Components
+- `base.css`: Base styles and layout
+- `matrix.css`: Matrix visualization styles
+- `tooltip.css`: Tooltip styling
+- `scrollbar.css`: Cross-browser scrollbar styles
+
+This modular CSS architecture follows these principles:
+- Design tokens are separated from component styles
+- Variables are organized by purpose
+- Components use design token variables
+- Clear separation of concerns
+- Easy to maintain and scale
+- Consistent naming conventions
+- Reusable utility classes
 
 ## Data Format
 
