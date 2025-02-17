@@ -67,6 +67,12 @@
     background: var(--color-background);
 }
 
+/* Matrix content */
+.matrix-content {
+    transform-origin: top left;
+    transition: var(--transition-default);
+}
+
 /* Matrix SVG container */
 .matrix-svg {
     margin: var(--matrix-margin-top) var(--matrix-margin-right) 
