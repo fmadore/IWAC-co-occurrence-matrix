@@ -1,0 +1,41 @@
+/* Base styles for layout and typography */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.description {
+    margin-bottom: 30px;
+}
+
+.description h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.description p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Form controls */
+#window-type,
+#order {
+    display: inline-block;
+    padding: 2px 5px;
+    font-size: inherit;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 5px 10px;
+    font-size: 14px;
+} 

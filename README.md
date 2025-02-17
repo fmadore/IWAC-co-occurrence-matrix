@@ -6,10 +6,13 @@ An interactive visualization tool that displays term co-occurrences in newspaper
 
 - Interactive matrix visualization of term co-occurrences
 - Multiple window types (article, paragraph, sentence) for co-occurrence analysis
-- Dynamic ordering options (by name or frequency)
+- Dynamic ordering options:
+  - Name: Alphabetical ordering of terms
+  - Frequency: Ordering by total co-occurrence frequency (descending)
 - Interactive tooltips showing co-occurrence details
 - Responsive highlighting of matrix cells and labels
 - Color-coded visualization based on co-occurrence frequency
+- Cross-browser compatible styling
 
 ## Project Structure
 
@@ -23,9 +26,15 @@ IWAC-co-occurrence-matrix/
 │   ├── dataProcessor.js     # Data processing functions
 │   ├── visualComponents.js  # D3.js visualization components
 │   ├── cellInteractions.js  # Cell interaction handlers
+│   ├── sortingUtils.js      # Matrix sorting functionality
 │   ├── MatrixVisualization.js # Main visualization class
 │   └── main.js             # Application entry point
-├── styles.css              # Visualization styles
+├── css/
+│   ├── main.css            # Main CSS file importing all modules
+│   ├── base.css            # Base styles and layout
+│   ├── matrix.css          # Matrix-specific styles
+│   ├── tooltip.css         # Tooltip styles
+│   └── scrollbar.css       # Cross-browser scrollbar styles
 ├── index.html             # Main HTML file
 └── README.md              # Project documentation
 ```
@@ -57,19 +66,30 @@ IWAC-co-occurrence-matrix/
 ## Usage
 
 1. Select a window type (article, paragraph, or sentence) to view co-occurrences at different textual levels
-2. Use the ordering options to sort terms by name or frequency
+2. Use the ordering options to organize the matrix:
+   - Name: Orders terms alphabetically
+   - Frequency: Orders terms by their total co-occurrence frequency (highest to lowest)
 3. Hover over cells to see detailed co-occurrence information
 4. Observe highlighted rows and columns for better pattern recognition
 
 ## Code Organization
 
+### JavaScript Modules
 - `config.js`: Contains all configuration parameters for the visualization
 - `utils.js`: General utility functions for error handling and size calculations
 - `dataProcessor.js`: Functions for processing and transforming the co-occurrence data
 - `visualComponents.js`: Reusable D3.js visualization components
 - `cellInteractions.js`: Handlers for cell hover and highlight interactions
+- `sortingUtils.js`: Matrix sorting algorithms and utilities
 - `MatrixVisualization.js`: Main class orchestrating the visualization
 - `main.js`: Application initialization and setup
+
+### CSS Modules
+- `main.css`: Imports and organizes all CSS modules
+- `base.css`: Base styles for layout and typography
+- `matrix.css`: Styles specific to the matrix visualization
+- `tooltip.css`: Tooltip styling and animations
+- `scrollbar.css`: Cross-browser compatible scrollbar styling
 
 ## Data Format
 
@@ -84,3 +104,21 @@ The visualization expects a JSON file with the following structure:
   "sentence": { ... }
 }
 ```
+
+## Browser Compatibility
+
+The visualization is compatible with:
+- Modern browsers (Chrome, Firefox, Edge, Safari)
+- Includes fallbacks for scrollbar styling across different browsers
+- Responsive design that works on different screen sizes
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

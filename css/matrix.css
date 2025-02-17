@@ -1,0 +1,55 @@
+/* Matrix container */
+#matrix {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 20px auto;
+    overflow: auto;
+}
+
+/* Matrix cells */
+.cell {
+    fill: #f8f9fa;
+    stroke: #fff;
+    stroke-width: 0.5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.cell:hover {
+    stroke: #333;
+    stroke-width: 1.5px;
+    cursor: pointer;
+    opacity: 1 !important;
+}
+
+/* Matrix labels */
+.label {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    fill: #333;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.row text {
+    font-size: 11px;
+    text-anchor: end;
+    transition: all 0.2s ease;
+}
+
+.column text {
+    font-size: 11px;
+    text-anchor: start;
+    transform-origin: 0 0;
+    transition: all 0.2s ease;
+}
+
+.row-label,
+.column-label {
+    font-family: sans-serif;
+    font-size: 9px;
+}
+
+.column-label {
+    text-anchor: start;
+} 

@@ -1,0 +1,36 @@
+/* Cross-browser scrollbar styling */
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+/* For Firefox, provide hover state */
+*:hover {
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+/* For IE/Edge legacy */
+* {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+} 
