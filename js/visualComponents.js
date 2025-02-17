@@ -25,7 +25,7 @@ export const visualComponents = {
         if (!d3.select("#tooltip").size()) {
             d3.select("body").append("div")
                 .attr("id", "tooltip")
-                .attr("class", "tooltip transition-fast no-pointer bg-surface shadow-sm rounded-sm")
+                .attr("class", "tooltip transition-fast no-pointer-events bg-surface shadow-sm rounded-sm")
                 .attr("role", "tooltip")
                 .attr("aria-hidden", "true")
                 .html(`

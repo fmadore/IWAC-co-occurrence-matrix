@@ -65,7 +65,7 @@ export class MatrixVisualization {
             .enter()
             .append("rect")
             .attr("class", d => {
-                const baseClasses = "cell transition-matrix pointer-events matrix-cell-md";
+                const baseClasses = "cell transition-matrix pointer matrix-cell-md";
                 const stateClasses = d.value === 0 ? "cell-empty" : "cell-filled";
                 return `${baseClasses} ${stateClasses}`;
             })
