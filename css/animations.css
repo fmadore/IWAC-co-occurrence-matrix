@@ -1,6 +1,7 @@
 /* Animation variables */
 :root {
     /* Durations */
+    --duration-instant: 0ms;
     --duration-fast: 150ms;
     --duration-normal: 200ms;
     --duration-slow: 300ms;
@@ -8,22 +9,32 @@
     /* Timing functions */
     --ease-default: ease-in-out;
     --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-in: ease-in;
+    --ease-out: ease-out;
     
     /* Transitions */
     --transition-default: all var(--duration-normal) var(--ease-default);
     --transition-fast: all var(--duration-fast) var(--ease-default);
     --transition-bounce: all var(--duration-slow) var(--ease-bounce);
+    --transition-matrix: opacity var(--duration-normal) var(--ease-default),
+                        stroke var(--duration-fast) var(--ease-out);
 }
 
 /* Common animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: var(--opacity-none); }
+    to { opacity: var(--opacity-full); }
 }
 
 @keyframes scaleIn {
-    from { transform: scale(0.95); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    from { 
+        transform: scale(0.95); 
+        opacity: var(--opacity-none);
+    }
+    to { 
+        transform: scale(1); 
+        opacity: var(--opacity-full);
+    }
 }
 
 /* Animation classes */
@@ -36,6 +47,10 @@
 }
 
 /* Transition classes */
+.transition-none {
+    transition: none !important;
+}
+
 .transition-default {
     transition: var(--transition-default);
 }
@@ -46,4 +61,8 @@
 
 .transition-bounce {
     transition: var(--transition-bounce);
+}
+
+.transition-matrix {
+    transition: var(--transition-matrix);
 } 
