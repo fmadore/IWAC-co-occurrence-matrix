@@ -7,8 +7,8 @@ export const config = {
     },
     cellSize: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-cell-size').replace('px', '')),
     cellPadding: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-cell-padding').replace('px', '')),
-    maxOpacity: getComputedStyle(document.documentElement).getPropertyValue('--opacity-full').trim() || 1.0,
-    minOpacity: getComputedStyle(document.documentElement).getPropertyValue('--opacity-light').trim() || 0.3,
+    maxOpacity: Number(getComputedStyle(document.documentElement).getPropertyValue('--opacity-full')) || 1.0,
+    minOpacity: Number(getComputedStyle(document.documentElement).getPropertyValue('--opacity-light')) || 0.3,
     colors: {
         empty: getComputedStyle(document.documentElement).getPropertyValue('--color-cell-empty').trim(),
         filled: d3.interpolateBlues,
