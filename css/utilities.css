@@ -96,8 +96,18 @@
 .transition-fast { transition: var(--transition-fast) !important; }
 
 /* Visibility and interaction utilities */
-.visible { visibility: visible !important; }
-.invisible { visibility: hidden !important; }
+.visible {
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+}
+
+.invisible {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    display: none !important;
+}
+
 .pointer { cursor: pointer !important; }
 .no-pointer { pointer-events: none !important; }
 

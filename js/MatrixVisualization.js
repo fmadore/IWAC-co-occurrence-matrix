@@ -33,7 +33,14 @@ export class MatrixVisualization {
         const { maxValue, colorScale } = dataProcessor.calculateScales(orderedLinks);
         const { width, height } = utils.calculateMatrixSize(orderedNodes.length);
 
-        const svg = visualComponents.setupSVG(d3.select("#matrix"), width, height);
+        // Create SVG with utility classes
+        const svg = visualComponents.setupSVG(
+            d3.select("#matrix")
+                .classed("matrix-container bg-surface shadow-md rounded-md overflow-auto", true),
+            width,
+            height
+        );
+
         this.renderRows(svg, orderedNodes, matrix, maxValue, colorScale);
         this.renderLabels(svg, orderedNodes);
         visualComponents.createTooltip();
@@ -44,7 +51,7 @@ export class MatrixVisualization {
             .data(nodes)
             .enter()
             .append("g")
-            .attr("class", "row")
+            .attr("class", "row d-flex")
             .attr("transform", (d, i) => `translate(0,${i * (config.cellSize + config.cellPadding)})`);
 
         this.renderCells(rows, matrix, nodes, maxValue, colorScale);
@@ -55,7 +62,7 @@ export class MatrixVisualization {
             .data((d, i) => matrix[i].map((value, j) => ({value, i, j, nodes})))
             .enter()
             .append("rect")
-            .attr("class", "cell")
+            .attr("class", "cell transition-default pointer")
             .attr("x", (d, i) => i * (config.cellSize + config.cellPadding))
             .attr("width", config.cellSize)
             .attr("height", config.cellSize)
@@ -66,8 +73,6 @@ export class MatrixVisualization {
                 return config.minOpacity + Math.pow(normalizedValue, 0.5) * 
                        (config.maxOpacity - config.minOpacity);
             })
-            .style("stroke", "#ddd")
-            .style("stroke-width", 0.5)
             .attr("data-row", d => d.i)
             .attr("data-col", d => d.j)
             .on("mouseover", (event, d) => {
@@ -84,34 +89,31 @@ export class MatrixVisualization {
         // Row labels
         svg.selectAll(".row")
             .append("text")
-            .attr("class", d => `label row-label-${nodes.indexOf(d)}`)
+            .attr("class", d => `label row-label-${nodes.indexOf(d)} font-sm text-primary transition-default`)
             .attr("x", -12)
             .attr("y", config.cellSize / 2)
             .attr("text-anchor", "end")
             .attr("alignment-baseline", "middle")
-            .text(d => d.name)
-            .style("font-size", "12px")
-            .style("font-weight", "500");
+            .text(d => d.name);
 
-        // Column labels - create a container group
+        // Column labels container with utility classes
         const columnLabelsGroup = svg.append("g")
-            .attr("class", "column-labels");
+            .attr("class", "column-labels transition-default");
 
+        // Column labels
         columnLabelsGroup.selectAll(".column-label")
             .data(nodes)
             .enter()
             .append("text")
-            .attr("class", (d, i) => `label col-label-${i}`)
+            .attr("class", (d, i) => `label col-label-${i} font-sm text-primary transition-default`)
             .attr("x", (d, i) => i * (config.cellSize + config.cellPadding) + config.cellSize / 2)
-            .attr("y", -10)  // Adjusted y position
+            .attr("y", -10)
             .attr("transform", (d, i) => {
                 const x = i * (config.cellSize + config.cellPadding) + config.cellSize / 2;
-                return `rotate(-45,${x},-10)`;  // Changed angle from -65 to -45 for better readability
+                return `rotate(-45,${x},-10)`;
             })
             .attr("text-anchor", "end")
             .attr("dy", ".2em")
-            .text(d => d.name)
-            .style("font-size", "12px")
-            .style("font-weight", "500");
+            .text(d => d.name);
     }
 } 

@@ -9,8 +9,28 @@
     z-index: var(--z-index-tooltip);
     white-space: nowrap;
     box-shadow: var(--shadow-sm);
-    transition: var(--transition-default);
-    animation: fadeIn var(--duration-fast) var(--ease-default);
+    transition: var(--transition-fast);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Tooltip content styles */
+.tooltip-content {
+    padding: var(--spacing-xs);
+}
+
+.tooltip-label {
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-xs);
+}
+
+.tooltip-value {
+    color: var(--color-text-secondary);
 }
 
 #tooltip {

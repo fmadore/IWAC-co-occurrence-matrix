@@ -9,9 +9,17 @@ export const cellInteractions = {
                 return (cellRow === row && cellCol === col) ? 1 : 0.15;
             });
 
-        d3.selectAll(".label").style("fill", "#999");
-        d3.select(`.row-label-${row}`).style("fill", "#2171b5").style("font-weight", "bold");
-        d3.select(`.col-label-${col}`).style("fill", "#2171b5").style("font-weight", "bold");
+        d3.selectAll(".label")
+            .classed("dimmed", true)
+            .classed("highlighted", false);
+        
+        d3.select(`.row-label-${row}`)
+            .classed("dimmed", false)
+            .classed("highlighted", true);
+        
+        d3.select(`.col-label-${col}`)
+            .classed("dimmed", false)
+            .classed("highlighted", true);
     },
 
     unhighlightCell(maxValue) {
@@ -23,7 +31,7 @@ export const cellInteractions = {
             });
 
         d3.selectAll(".label")
-            .style("fill", "#333")
-            .style("font-weight", "500");
+            .classed("dimmed", false)
+            .classed("highlighted", false);
     }
 }; 

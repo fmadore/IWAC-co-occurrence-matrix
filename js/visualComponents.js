@@ -4,6 +4,7 @@ export const visualComponents = {
     setupSVG(container, width, height) {
         return container
             .append("svg")
+            .attr("class", "w-100 h-auto")
             .attr("width", width)
             .attr("height", height)
             .append("g")
@@ -14,8 +15,13 @@ export const visualComponents = {
         if (!d3.select("#tooltip").size()) {
             d3.select("body").append("div")
                 .attr("id", "tooltip")
-                .attr("class", "tooltip")
-                .style("display", "none");
+                .attr("class", "tooltip transition-fast")
+                .html(`
+                    <div class="tooltip-content">
+                        <div class="tooltip-label"></div>
+                        <div class="tooltip-value"></div>
+                    </div>
+                `);
         }
     },
 
@@ -24,14 +30,24 @@ export const visualComponents = {
             const tooltip = d3.select("#tooltip");
             const source = d.nodes[d.i].name;
             const target = d.nodes[d.j].name;
-            tooltip.style("display", "block")
+            
+            // Update tooltip content
+            tooltip.select(".tooltip-label")
+                .text(`${source} ↔ ${target}`);
+            
+            tooltip.select(".tooltip-value")
+                .text(`Co-occurrences: ${d.value}`);
+
+            // Position and show tooltip
+            tooltip
                 .style("left", (event.pageX + 10) + "px")
                 .style("top", (event.pageY - 10) + "px")
-                .html(`${source} ↔ ${target}<br>Co-occurrences: ${d.value}`);
+                .classed("visible", true);
         }
     },
 
     hideTooltip() {
-        d3.select("#tooltip").style("display", "none");
+        d3.select("#tooltip")
+            .classed("visible", false);
     }
 }; 
