@@ -8,6 +8,14 @@
     overflow: auto;
 }
 
+/* Matrix SVG container */
+.matrix-svg {
+    margin-top: var(--matrix-margin-top);
+    margin-right: var(--matrix-margin-right);
+    margin-bottom: var(--matrix-margin-bottom);
+    margin-left: var(--matrix-margin-left);
+}
+
 /* Matrix cells */
 .cell {
     fill: var(--color-cell-empty);

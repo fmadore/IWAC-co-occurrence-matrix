@@ -8,6 +8,12 @@
     --spacing-xl: 20px;
     --spacing-2xl: 30px;
     
+    /* Matrix margins */
+    --matrix-margin-top: 220px;    /* Space for rotated labels */
+    --matrix-margin-right: 20px;
+    --matrix-margin-bottom: 10px;
+    --matrix-margin-left: 120px;
+    
     /* Container widths */
     --container-max-width: 1200px;
     

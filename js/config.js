@@ -1,9 +1,9 @@
 export const config = {
-    margin: { 
-        top: 220,    // Space for rotated labels
-        right: 20,
-        bottom: 10,
-        left: 120 
+    margin: {
+        top: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-top').replace('px', '')),
+        right: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-right').replace('px', '')),
+        bottom: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-bottom').replace('px', '')),
+        left: Number(getComputedStyle(document.documentElement).getPropertyValue('--matrix-margin-left').replace('px', ''))
     },
     cellSize: 16,
     cellPadding: 3,
