@@ -93,17 +93,20 @@ export class MatrixVisualization {
             .style("font-size", "12px")
             .style("font-weight", "500");
 
-        // Column labels
-        svg.selectAll(".column-label")
+        // Column labels - create a container group
+        const columnLabelsGroup = svg.append("g")
+            .attr("class", "column-labels");
+
+        columnLabelsGroup.selectAll(".column-label")
             .data(nodes)
             .enter()
             .append("text")
             .attr("class", (d, i) => `label col-label-${i}`)
             .attr("x", (d, i) => i * (config.cellSize + config.cellPadding) + config.cellSize / 2)
-            .attr("y", -30)
+            .attr("y", -10)  // Adjusted y position
             .attr("transform", (d, i) => {
                 const x = i * (config.cellSize + config.cellPadding) + config.cellSize / 2;
-                return `rotate(-65,${x},-30)`;
+                return `rotate(-45,${x},-10)`;  // Changed angle from -65 to -45 for better readability
             })
             .attr("text-anchor", "end")
             .attr("dy", ".2em")

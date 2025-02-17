@@ -29,14 +29,17 @@
     fill: #333;
     font-weight: 500;
     transition: all 0.2s ease-in-out;
+    dominant-baseline: middle;
 }
 
+/* Row labels */
 .row text {
     font-size: 11px;
     text-anchor: end;
     transition: all 0.2s ease;
 }
 
+/* Column labels */
 .column text {
     font-size: 11px;
     text-anchor: start;
@@ -51,5 +54,10 @@
 }
 
 .column-label {
-    text-anchor: start;
+    text-anchor: end;
+}
+
+/* Column label container */
+.column-labels {
+    transform: translate(0, -60px);
 } 

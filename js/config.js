@@ -1,5 +1,10 @@
 export const config = {
-    margin: { top: 160, right: 20, bottom: 10, left: 120 },
+    margin: { 
+        top: 220,     // Increased from 160 to accommodate rotated labels
+        right: 20, 
+        bottom: 10, 
+        left: 120 
+    },
     cellSize: 16,
     cellPadding: 3,
     maxOpacity: 1.0,
