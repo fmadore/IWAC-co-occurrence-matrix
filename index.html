@@ -25,12 +25,17 @@
                 </select>
             </p>
             
-            <div class="controls">
-                <label for="order">Order by: </label>
-                <select id="order" name="order" aria-label="Select ordering method">
-                    <option value="name">Name</option>
-                    <option value="frequency">Frequency</option>
-                </select>
+            <div class="controls d-flex justify-between align-center">
+                <div class="control-group">
+                    <label for="order">Order by: </label>
+                    <select id="order" name="order" aria-label="Select ordering method">
+                        <option value="name">Name</option>
+                        <option value="frequency">Frequency</option>
+                    </select>
+                </div>
+                <button id="download-btn" class="btn btn-primary" aria-label="Download visualization">
+                    Download SVG
+                </button>
             </div>
         </div>
 

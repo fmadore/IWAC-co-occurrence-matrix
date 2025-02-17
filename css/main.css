@@ -11,6 +11,7 @@
 @import 'utilities/visual.css';
 @import 'utilities/interaction.css';
 @import 'utilities/matrix.css';
+@import 'utilities/button.css';
 
 /* Component styles */
 @import 'base.css';

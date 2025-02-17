@@ -4,6 +4,7 @@ import { dataProcessor } from './dataProcessor.js';
 import { visualComponents } from './visualComponents.js';
 import { cellInteractions } from './cellInteractions.js';
 import { sortingUtils } from './sortingUtils.js';
+import { downloadUtils } from './downloadUtils.js';
 
 export class MatrixVisualization {
     constructor(data) {
@@ -20,6 +21,18 @@ export class MatrixVisualization {
             const windowType = document.getElementById('window-type').value;
             const orderType = document.getElementById('order').value;
             this.createMatrix(windowType, orderType);
+        });
+
+        // Setup download button handler
+        const downloadBtn = d3.select('#download-btn');
+        downloadBtn.on('click', () => {
+            const svg = document.querySelector('#matrix svg');
+            if (svg) {
+                const datasetName = document.getElementById('dataset-type').value;
+                const windowType = document.getElementById('window-type').value;
+                const filename = downloadUtils.generateFilename(datasetName, windowType);
+                downloadUtils.downloadSVG(svg, filename);
+            }
         });
     }
 
