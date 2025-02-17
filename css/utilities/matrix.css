@@ -5,10 +5,10 @@
     --matrix-cell-padding: 3px;
     
     /* Matrix margins */
-    --matrix-margin-top: 80px;
-    --matrix-margin-right: 20px;
+    --matrix-margin-top: 40px;
+    --matrix-margin-right: 10px;
     --matrix-margin-bottom: 10px;
-    --matrix-margin-left: 80px;
+    --matrix-margin-left: 60px;
 }
 
 /* Matrix dimension utilities */
@@ -58,11 +58,11 @@
 
 /* Matrix container utilities */
 .matrix-container {
-    padding: var(--spacing-lg);
-    margin: var(--spacing-md) auto;
+    padding: var(--spacing-md);
+    margin: var(--spacing-sm) auto;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
-    max-height: 85vh;
+    max-height: 90vh;
     overflow: auto;
     background: var(--color-background);
 }
@@ -129,10 +129,10 @@
 
 /* Matrix responsive utilities */
 .matrix-responsive {
-    --matrix-cell-size: clamp(12px, 2vw, 20px);
-    --matrix-cell-padding: clamp(2px, 0.5vw, 4px);
-    --matrix-margin-top: clamp(160px, 20vw, 220px);
-    --matrix-margin-left: clamp(80px, 10vw, 120px);
+    --matrix-cell-size: clamp(12px, 1.5vw, 18px);
+    --matrix-cell-padding: clamp(1px, 0.3vw, 3px);
+    --matrix-margin-top: clamp(40px, 15vw, 160px);
+    --matrix-margin-left: clamp(60px, 8vw, 100px);
 }
 
 /* Matrix layout utilities */

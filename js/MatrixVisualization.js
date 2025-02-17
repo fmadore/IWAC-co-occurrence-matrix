@@ -99,7 +99,7 @@ export class MatrixVisualization {
         // Column labels container with utility classes
         const columnLabelsGroup = svg.append("g")
             .attr("class", "column-labels transition-default")
-            .attr("transform", `translate(0, ${-config.margin.top * 0.25})`);
+            .attr("transform", `translate(0, ${-config.margin.top * 0.4})`);
 
         // Column labels
         columnLabelsGroup.selectAll(".column-label")
@@ -111,7 +111,7 @@ export class MatrixVisualization {
             .attr("y", -4)
             .attr("transform", (d, i) => {
                 const x = i * (config.cellSize + config.cellPadding) + config.cellSize / 2;
-                return `rotate(-35,${x},-4)`;
+                return `rotate(-45,${x},-4)`;
             })
             .attr("text-anchor", "end")
             .attr("dy", ".2em")
