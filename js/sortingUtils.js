@@ -1,28 +1,38 @@
+import { config } from './config.js';
+
 export const sortingUtils = {
     byName(nodes) {
-        return nodes.slice().sort((a, b) => a.name.localeCompare(b.name));
+        // Use Intl.Collator for better internationalization and performance
+        const collator = new Intl.Collator(undefined, {
+            numeric: true,
+            sensitivity: 'base'
+        });
+        return nodes.slice().sort((a, b) => collator.compare(a.name, b.name));
     },
 
     byFrequency(nodes, links) {
-        // Calculate total frequency for each node
+        // Pre-calculate frequencies using a more efficient approach
         const frequencies = new Map();
-        nodes.forEach(node => {
-            const totalFrequency = links.reduce((sum, link) => {
-                if (link.source === node.id) {
-                    return sum + link.value;
-                }
-                if (link.target === node.id) {
-                    return sum + link.value;
-                }
-                return sum;
-            }, 0);
-            frequencies.set(node.id, totalFrequency);
+        
+        // Initialize frequencies
+        nodes.forEach(node => frequencies.set(node.id, 0));
+        
+        // Calculate frequencies in a single pass
+        links.forEach(link => {
+            frequencies.set(link.source, frequencies.get(link.source) + link.value);
+            frequencies.set(link.target, frequencies.get(link.target) + link.value);
+        });
+
+        // Use Intl.Collator for consistent string comparison
+        const collator = new Intl.Collator(undefined, {
+            numeric: true,
+            sensitivity: 'base'
         });
 
         // Sort nodes by frequency (descending) and then by name for ties
         return nodes.slice().sort((a, b) => {
             const freqDiff = frequencies.get(b.id) - frequencies.get(a.id);
-            return freqDiff !== 0 ? freqDiff : a.name.localeCompare(b.name);
+            return freqDiff !== 0 ? freqDiff : collator.compare(a.name, b.name);
         });
     },
 
@@ -32,16 +42,21 @@ export const sortingUtils = {
             ? this.byFrequency(nodes, links)
             : this.byName(nodes);
             
+        // Use Map for O(1) lookups
         const indexMap = new Map(
             orderedNodes.map((node, index) => [node.id, index])
         );
 
         // Reorder links according to new indices
-        const orderedLinks = links.map(link => ({
-            source: indexMap.get(link.source),
-            target: indexMap.get(link.target),
-            value: link.value
-        }));
+        // Use more efficient array allocation
+        const orderedLinks = new Array(links.length);
+        links.forEach((link, i) => {
+            orderedLinks[i] = {
+                source: indexMap.get(link.source),
+                target: indexMap.get(link.target),
+                value: link.value
+            };
+        });
 
         return { orderedNodes, orderedLinks };
     }
