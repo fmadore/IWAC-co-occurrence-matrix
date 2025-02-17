@@ -12,12 +12,14 @@ export class MatrixVisualization {
     }
 
     setupEventListeners() {
-        document.getElementById('window-type').addEventListener('change', (event) => {
-            this.createMatrix(event.target.value);
-        });
+        // Add transition classes to controls
+        const controls = d3.selectAll('#window-type, #order')
+            .classed('p-sm rounded-sm border text-primary bg-transparent transition-default pointer', true);
 
-        document.getElementById('order').addEventListener('change', (event) => {
-            this.createMatrix(document.getElementById('window-type').value, event.target.value);
+        controls.on('change', (event) => {
+            const windowType = document.getElementById('window-type').value;
+            const orderType = document.getElementById('order').value;
+            this.createMatrix(windowType, orderType);
         });
     }
 
@@ -36,7 +38,7 @@ export class MatrixVisualization {
         // Create SVG with utility classes
         const svg = visualComponents.setupSVG(
             d3.select("#matrix")
-                .classed("matrix-container bg-surface shadow-md rounded-md overflow-auto", true),
+                .classed("matrix-container matrix-responsive bg-surface shadow-md rounded-md overflow-auto", true),
             width,
             height
         );
@@ -51,7 +53,7 @@ export class MatrixVisualization {
             .data(nodes)
             .enter()
             .append("g")
-            .attr("class", "row d-flex")
+            .attr("class", "row d-flex matrix-gap-md")
             .attr("transform", (d, i) => `translate(0,${i * (config.cellSize + config.cellPadding)})`);
 
         this.renderCells(rows, matrix, nodes, maxValue, colorScale);
@@ -62,17 +64,15 @@ export class MatrixVisualization {
             .data((d, i) => matrix[i].map((value, j) => ({value, i, j, nodes})))
             .enter()
             .append("rect")
-            .attr("class", "cell transition-default pointer")
+            .attr("class", d => {
+                const baseClasses = "cell transition-matrix pointer matrix-cell-md";
+                const stateClasses = d.value === 0 ? "cell-empty" : "cell-filled";
+                return `${baseClasses} ${stateClasses}`;
+            })
             .attr("x", (d, i) => i * (config.cellSize + config.cellPadding))
             .attr("width", config.cellSize)
             .attr("height", config.cellSize)
             .style("fill", d => d.value === 0 ? config.colors.empty : colorScale(d.value))
-            .style("opacity", d => {
-                if (d.value === 0) return 0.05;
-                const normalizedValue = d.value / maxValue;
-                return config.minOpacity + Math.pow(normalizedValue, 0.5) * 
-                       (config.maxOpacity - config.minOpacity);
-            })
             .attr("data-row", d => d.i)
             .attr("data-col", d => d.j)
             .on("mouseover", (event, d) => {
@@ -98,7 +98,7 @@ export class MatrixVisualization {
 
         // Column labels container with utility classes
         const columnLabelsGroup = svg.append("g")
-            .attr("class", "column-labels transition-default");
+            .attr("class", "column-labels transition-default matrix-margin-md");
 
         // Column labels
         columnLabelsGroup.selectAll(".column-label")
