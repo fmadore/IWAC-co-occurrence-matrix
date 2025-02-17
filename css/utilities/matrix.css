@@ -5,7 +5,7 @@
     --matrix-cell-padding: 3px;
     
     /* Matrix margins */
-    --matrix-margin-top: 40px;
+    --matrix-margin-top: 60px;
     --matrix-margin-right: 5px;
     --matrix-margin-bottom: 10px;
     --matrix-margin-left: 60px;
@@ -134,7 +134,7 @@
 .matrix-responsive {
     --matrix-cell-size: clamp(12px, 1.5vw, 18px);
     --matrix-cell-padding: clamp(1px, 0.3vw, 3px);
-    --matrix-margin-top: clamp(40px, 15vw, 160px);
+    --matrix-margin-top: clamp(60px, 15vw, 180px);
     --matrix-margin-left: clamp(60px, 8vw, 100px);
     --matrix-margin-right: clamp(5px, 1vw, 10px);
 }

@@ -99,7 +99,7 @@ export class MatrixVisualization {
         // Column labels container with utility classes
         const columnLabelsGroup = svg.append("g")
             .attr("class", "column-labels transition-default")
-            .attr("transform", `translate(0, ${-config.margin.top * 0.4})`);
+            .attr("transform", `translate(0, ${-config.margin.top * 0.8})`);
 
         // Column labels
         columnLabelsGroup.selectAll(".column-label")
