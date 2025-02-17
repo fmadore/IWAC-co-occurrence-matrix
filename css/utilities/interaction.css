@@ -1,0 +1,21 @@
+/* Visibility utilities */
+.visible {
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+}
+
+.invisible {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    display: none !important;
+}
+
+/* Interaction utilities */
+.pointer { cursor: pointer !important; }
+.no-pointer { pointer-events: none !important; }
+
+/* Animation utilities */
+.transition-none { transition: none !important; }
+.transition-default { transition: var(--transition-default) !important; }
+.transition-fast { transition: var(--transition-fast) !important; } 

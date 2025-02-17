@@ -1,0 +1,18 @@
+/* Text utilities */
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+
+.text-primary { color: var(--color-text-primary) !important; }
+.text-secondary { color: var(--color-text-secondary) !important; }
+.text-light { color: var(--color-text-light) !important; }
+
+.font-xs { font-size: var(--font-size-xs) !important; }
+.font-sm { font-size: var(--font-size-sm) !important; }
+.font-base { font-size: var(--font-size-base) !important; }
+.font-md { font-size: var(--font-size-md) !important; }
+.font-lg { font-size: var(--font-size-lg) !important; }
+
+.font-normal { font-weight: var(--font-weight-normal) !important; }
+.font-medium { font-weight: var(--font-weight-medium) !important; }
+.font-bold { font-weight: var(--font-weight-bold) !important; } 

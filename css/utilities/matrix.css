@@ -1,0 +1,82 @@
+/* Matrix dimension utilities */
+.matrix-cell-sm {
+    width: calc(var(--matrix-cell-size) * 0.75) !important;
+    height: calc(var(--matrix-cell-size) * 0.75) !important;
+}
+
+.matrix-cell-md {
+    width: var(--matrix-cell-size) !important;
+    height: var(--matrix-cell-size) !important;
+}
+
+.matrix-cell-lg {
+    width: calc(var(--matrix-cell-size) * 1.25) !important;
+    height: calc(var(--matrix-cell-size) * 1.25) !important;
+}
+
+/* Matrix spacing utilities */
+.matrix-gap-sm {
+    gap: calc(var(--matrix-cell-padding) * 0.75) !important;
+}
+
+.matrix-gap-md {
+    gap: var(--matrix-cell-padding) !important;
+}
+
+.matrix-gap-lg {
+    gap: calc(var(--matrix-cell-padding) * 1.25) !important;
+}
+
+/* Matrix margin utilities */
+.matrix-margin-sm {
+    margin: calc(var(--matrix-margin-top) * 0.75) calc(var(--matrix-margin-right) * 0.75) 
+           calc(var(--matrix-margin-bottom) * 0.75) calc(var(--matrix-margin-left) * 0.75) !important;
+}
+
+.matrix-margin-md {
+    margin: var(--matrix-margin-top) var(--matrix-margin-right)
+           var(--matrix-margin-bottom) var(--matrix-margin-left) !important;
+}
+
+.matrix-margin-lg {
+    margin: calc(var(--matrix-margin-top) * 1.25) calc(var(--matrix-margin-right) * 1.25)
+           calc(var(--matrix-margin-bottom) * 1.25) calc(var(--matrix-margin-left) * 1.25) !important;
+}
+
+/* Matrix container utilities */
+.matrix-compact {
+    --matrix-cell-size: 12px;
+    --matrix-cell-padding: 2px;
+}
+
+.matrix-normal {
+    --matrix-cell-size: 16px;
+    --matrix-cell-padding: 3px;
+}
+
+.matrix-expanded {
+    --matrix-cell-size: 20px;
+    --matrix-cell-padding: 4px;
+}
+
+/* Matrix responsive utilities */
+.matrix-responsive {
+    --matrix-cell-size: clamp(12px, 2vw, 20px);
+    --matrix-cell-padding: clamp(2px, 0.5vw, 4px);
+    --matrix-margin-top: clamp(160px, 20vw, 220px);
+    --matrix-margin-left: clamp(80px, 10vw, 120px);
+}
+
+/* Matrix layout utilities */
+.matrix-dense {
+    --matrix-cell-padding: 1px !important;
+}
+
+.matrix-sparse {
+    --matrix-cell-padding: 5px !important;
+}
+
+.matrix-auto-scroll {
+    max-height: 80vh;
+    overflow: auto;
+} 

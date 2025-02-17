@@ -1,0 +1,18 @@
+/* Border utilities */
+.rounded-none { border-radius: 0 !important; }
+.rounded-sm { border-radius: var(--radius-sm) !important; }
+.rounded-md { border-radius: var(--radius-md) !important; }
+
+.border { border: 1px solid var(--color-border) !important; }
+.border-0 { border: 0 !important; }
+
+/* Background utilities */
+.bg-primary { background-color: var(--color-primary) !important; }
+.bg-secondary { background-color: var(--color-secondary) !important; }
+.bg-surface { background-color: var(--color-surface) !important; }
+.bg-transparent { background-color: transparent !important; }
+
+/* Shadow utilities */
+.shadow-none { box-shadow: none !important; }
+.shadow-sm { box-shadow: var(--shadow-sm) !important; }
+.shadow-md { box-shadow: var(--shadow-md) !important; } 

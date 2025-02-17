@@ -1,11 +1,19 @@
 /* Import CSS modules in order of specificity */
 
-/* Design tokens and utilities first */
+/* Design tokens and base styles first */
 @import 'colors.css';
 @import 'typography.css';
 @import 'layout.css';
 @import 'animations.css';
-@import 'utilities.css';
+
+/* Utility modules */
+@import 'utilities/display.css';
+@import 'utilities/spacing.css';
+@import 'utilities/text.css';
+@import 'utilities/visual.css';
+@import 'utilities/layout.css';
+@import 'utilities/interaction.css';
+@import 'utilities/matrix.css';
 
 /* Component styles */
 @import 'base.css';

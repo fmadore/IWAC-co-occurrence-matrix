@@ -1,0 +1,21 @@
+/* Position utilities */
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.position-fixed { position: fixed !important; }
+
+/* Overflow utilities */
+.overflow-auto { overflow: auto !important; }
+.overflow-hidden { overflow: hidden !important; }
+.overflow-scroll { overflow: scroll !important; }
+.overflow-visible { overflow: visible !important; }
+
+/* Width and height utilities */
+.w-100 { width: 100% !important; }
+.h-100 { height: 100% !important; }
+.w-auto { width: auto !important; }
+.h-auto { height: auto !important; }
+
+/* Z-index utilities */
+.z-0 { z-index: 0 !important; }
+.z-1 { z-index: 1 !important; }
+.z-tooltip { z-index: var(--z-index-tooltip) !important; } 
