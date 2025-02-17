@@ -1,23 +1,25 @@
 /* Tooltip styles */
 .tooltip {
     position: absolute;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-    border-radius: 4px;
+    padding: var(--spacing-md);
+    background: var(--color-tooltip-bg);
+    color: var(--color-text-light);
+    border-radius: var(--radius-sm);
     pointer-events: none;
-    z-index: 1000;
+    z-index: var(--z-index-tooltip);
     white-space: nowrap;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    transition: all 0.2s ease-in-out;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-default);
+    animation: fadeIn var(--duration-fast) var(--ease-default);
 }
 
 #tooltip {
     position: absolute;
-    padding: 8px;
-    background: rgba(0,0,0,0.8);
-    color: white;
-    border-radius: 4px;
+    padding: var(--spacing-sm);
+    background: var(--color-tooltip-bg-light);
+    color: var(--color-text-light);
+    border-radius: var(--radius-sm);
     pointer-events: none;
     display: none;
+    animation: scaleIn var(--duration-normal) var(--ease-bounce);
 } 

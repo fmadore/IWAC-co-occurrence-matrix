@@ -1,23 +1,23 @@
 /* Matrix container */
 #matrix {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin: 20px auto;
+    background: var(--color-background);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) auto;
     overflow: auto;
 }
 
 /* Matrix cells */
 .cell {
-    fill: #f8f9fa;
-    stroke: #fff;
+    fill: var(--color-cell-empty);
+    stroke: var(--color-cell-stroke);
     stroke-width: 0.5px;
-    transition: all 0.2s ease-in-out;
+    transition: var(--transition-default);
 }
 
 .cell:hover {
-    stroke: #333;
+    stroke: var(--color-cell-hover-stroke);
     stroke-width: 1.5px;
     cursor: pointer;
     opacity: 1 !important;
@@ -25,22 +25,22 @@
 
 /* Matrix labels */
 .label {
-    fill: #333;
-    transition: all 0.2s ease-in-out;
+    fill: var(--color-text-primary);
+    transition: var(--transition-default);
     dominant-baseline: middle;
 }
 
 /* Row labels */
 .row text {
     text-anchor: end;
-    transition: all 0.2s ease;
+    transition: var(--transition-default);
 }
 
 /* Column labels */
 .column text {
     text-anchor: start;
     transform-origin: 0 0;
-    transition: all 0.2s ease;
+    transition: var(--transition-default);
 }
 
 .row-label,
@@ -55,5 +55,15 @@
 
 /* Column label container */
 .column-labels {
-    transform: translate(0, -60px);
+    transform: translate(0, calc(-3 * var(--spacing-xl)));
+}
+
+/* Highlight states */
+.label.highlighted {
+    fill: var(--color-highlight);
+    font-weight: var(--font-weight-bold);
+}
+
+.label.dimmed {
+    fill: var(--color-dimmed);
 } 
