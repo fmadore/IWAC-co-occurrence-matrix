@@ -3,10 +3,15 @@ import { config } from './config.js';
 export const cellInteractions = {
     highlightCell(row, col) {
         d3.selectAll(".cell")
-            .style("opacity", function() {
+            .classed("cell-highlighted", function() {
                 const cellRow = +this.getAttribute("data-row");
                 const cellCol = +this.getAttribute("data-col");
-                return (cellRow === row && cellCol === col) ? 1 : 0.15;
+                return cellRow === row && cellCol === col;
+            })
+            .classed("cell-dimmed", function() {
+                const cellRow = +this.getAttribute("data-row");
+                const cellCol = +this.getAttribute("data-col");
+                return cellRow !== row || cellCol !== col;
             });
 
         d3.selectAll(".label")
@@ -24,11 +29,10 @@ export const cellInteractions = {
 
     unhighlightCell(maxValue) {
         d3.selectAll(".cell")
-            .style("opacity", d => {
-                if (d.value === 0) return 0.05;
-                const normalizedValue = d.value / maxValue;
-                return config.minOpacity + normalizedValue * (config.maxOpacity - config.minOpacity);
-            });
+            .classed("cell-highlighted", false)
+            .classed("cell-dimmed", false)
+            .classed("cell-empty", d => d.value === 0)
+            .classed("cell-filled", d => d.value > 0);
 
         d3.selectAll(".label")
             .classed("dimmed", false)

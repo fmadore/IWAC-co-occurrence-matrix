@@ -16,6 +16,26 @@
     transition: var(--transition-default);
 }
 
+/* Cell states */
+.cell-empty {
+    fill: var(--color-cell-empty);
+    opacity: 0.05;
+}
+
+.cell-filled {
+    opacity: var(--opacity-default);
+}
+
+.cell-highlighted {
+    opacity: 1;
+    stroke: var(--color-cell-hover-stroke);
+    stroke-width: 1.5px;
+}
+
+.cell-dimmed {
+    opacity: 0.15;
+}
+
 .cell:hover {
     stroke: var(--color-cell-hover-stroke);
     stroke-width: 1.5px;
@@ -58,7 +78,7 @@
     transform: translate(0, calc(-3 * var(--spacing-xl)));
 }
 
-/* Highlight states */
+/* Label states */
 .label.highlighted {
     fill: var(--color-highlight);
     font-weight: var(--font-weight-bold);
