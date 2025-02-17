@@ -3,6 +3,7 @@ import { utils } from './utils.js';
 import { dataProcessor } from './dataProcessor.js';
 import { visualComponents } from './visualComponents.js';
 import { cellInteractions } from './cellInteractions.js';
+import { sortingUtils } from './sortingUtils.js';
 
 export class MatrixVisualization {
     constructor(data) {
@@ -15,22 +16,26 @@ export class MatrixVisualization {
             this.createMatrix(event.target.value);
         });
 
-        document.getElementById('order').addEventListener('change', () => {
-            this.createMatrix(document.getElementById('window-type').value);
+        document.getElementById('order').addEventListener('change', (event) => {
+            this.createMatrix(document.getElementById('window-type').value, event.target.value);
         });
     }
 
-    createMatrix(windowType) {
+    createMatrix(windowType, orderType = document.getElementById('order').value) {
         d3.select("#matrix").selectAll("*").remove();
 
         const { nodes, links } = this.data[windowType];
-        const matrix = dataProcessor.createAdjacencyMatrix(nodes, links);
-        const { maxValue, colorScale } = dataProcessor.calculateScales(links);
-        const { width, height } = utils.calculateMatrixSize(nodes.length);
+        
+        // Apply ordering
+        const { orderedNodes, orderedLinks } = sortingUtils.getOrderedMatrix(nodes, links, orderType);
+        
+        const matrix = dataProcessor.createAdjacencyMatrix(orderedNodes, orderedLinks);
+        const { maxValue, colorScale } = dataProcessor.calculateScales(orderedLinks);
+        const { width, height } = utils.calculateMatrixSize(orderedNodes.length);
 
         const svg = visualComponents.setupSVG(d3.select("#matrix"), width, height);
-        this.renderRows(svg, nodes, matrix, maxValue, colorScale);
-        this.renderLabels(svg, nodes);
+        this.renderRows(svg, orderedNodes, matrix, maxValue, colorScale);
+        this.renderLabels(svg, orderedNodes);
         visualComponents.createTooltip();
     }
 
