@@ -14,7 +14,7 @@ export const cellInteractions = {
                 return cellRow !== row || cellCol !== col;
             });
 
-        d3.selectAll(".label")
+        d3.selectAll(".matrix-label")
             .classed("dimmed", true)
             .classed("highlighted", false);
         
@@ -34,7 +34,7 @@ export const cellInteractions = {
             .classed("cell-empty", d => d.value === 0)
             .classed("cell-filled", d => d.value > 0);
 
-        d3.selectAll(".label")
+        d3.selectAll(".matrix-label")
             .classed("dimmed", false)
             .classed("highlighted", false);
     }

@@ -1,6 +1,4 @@
-/* Import CSS modules in order of specificity */
-
-/* Design tokens and base styles first */
+/* Design tokens and base styles */
 @import 'colors.css';
 @import 'typography.css';
 @import 'layout.css';
@@ -11,12 +9,10 @@
 @import 'utilities/spacing.css';
 @import 'utilities/text.css';
 @import 'utilities/visual.css';
-@import 'utilities/layout.css';
 @import 'utilities/interaction.css';
 @import 'utilities/matrix.css';
 
 /* Component styles */
 @import 'base.css';
-@import 'matrix.css';
 @import 'tooltip.css';
 @import 'scrollbar.css'; 

@@ -8,18 +8,9 @@
     --spacing-xl: 20px;
     --spacing-2xl: 30px;
     
-    /* Matrix dimensions */
-    --matrix-cell-size: 16px;
-    --matrix-cell-padding: 3px;
-    
-    /* Matrix margins */
-    --matrix-margin-top: 80px;     /* Increased to accommodate rotated labels */
-    --matrix-margin-right: 20px;
-    --matrix-margin-bottom: 10px;
-    --matrix-margin-left: 80px;    /* Keep left margin as is */
-    
-    /* Container widths */
+    /* Container dimensions */
     --container-max-width: 1200px;
+    --container-padding: var(--spacing-lg);
     
     /* Border radius */
     --radius-sm: 4px;
@@ -30,6 +21,7 @@
     --shadow-md: 0 2px 8px var(--color-shadow);
     
     /* Z-index layers */
+    --z-index-base: 1;
     --z-index-tooltip: 1000;
 }
 
@@ -37,25 +29,27 @@
 .container {
     max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: var(--spacing-lg);  /* Reduced from xl */
+    padding: var(--container-padding);
 }
+
+/* Layout utilities */
+.overflow-auto { overflow: auto !important; }
+.overflow-hidden { overflow: hidden !important; }
+.overflow-scroll { overflow: scroll !important; }
+.overflow-visible { overflow: visible !important; }
+
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.position-fixed { position: fixed !important; }
+
+.z-base { z-index: var(--z-index-base) !important; }
+.z-tooltip { z-index: var(--z-index-tooltip) !important; }
 
 /* Spacing utilities */
-.margin-bottom-sm {
-    margin-bottom: var(--spacing-sm);
-}
-
-.margin-bottom-md {
-    margin-bottom: var(--spacing-md);
-}
-
-.margin-bottom-lg {
-    margin-bottom: var(--spacing-lg);
-}
-
-.margin-bottom-xl {
-    margin-bottom: var(--spacing-xl);
-}
+.margin-bottom-sm { margin-bottom: var(--spacing-sm); }
+.margin-bottom-md { margin-bottom: var(--spacing-md); }
+.margin-bottom-lg { margin-bottom: var(--spacing-lg); }
+.margin-bottom-xl { margin-bottom: var(--spacing-xl); }
 
 /* Matrix layout */
 .matrix-container {

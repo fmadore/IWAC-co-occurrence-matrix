@@ -89,7 +89,7 @@ export class MatrixVisualization {
         // Row labels
         svg.selectAll(".row")
             .append("text")
-            .attr("class", d => `label row-label-${nodes.indexOf(d)} font-xs text-primary transition-default`)
+            .attr("class", d => `matrix-label row-label-${nodes.indexOf(d)} font-xs text-primary transition-default`)
             .attr("x", -6)
             .attr("y", config.cellSize / 2)
             .attr("text-anchor", "end")
@@ -106,7 +106,7 @@ export class MatrixVisualization {
             .data(nodes)
             .enter()
             .append("text")
-            .attr("class", (d, i) => `label col-label-${i} font-xs text-primary transition-default`)
+            .attr("class", (d, i) => `matrix-label col-label-${i} font-xs text-primary transition-default`)
             .attr("x", (d, i) => i * (config.cellSize + config.cellPadding) + config.cellSize / 2)
             .attr("y", -4)
             .attr("transform", (d, i) => {

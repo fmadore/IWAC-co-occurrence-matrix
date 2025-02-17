@@ -1,7 +1,7 @@
-/* Tooltip styles */
+/* Tooltip container */
 .tooltip {
     position: absolute;
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     background: var(--color-tooltip-bg);
     color: var(--color-text-light);
     border-radius: var(--radius-sm);
@@ -12,6 +12,9 @@
     transition: var(--transition-fast);
     opacity: 0;
     visibility: hidden;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
 }
 
 .tooltip.visible {
@@ -19,7 +22,7 @@
     visibility: visible;
 }
 
-/* Tooltip content styles */
+/* Tooltip content */
 .tooltip-content {
     padding: var(--spacing-xs);
 }
@@ -33,13 +36,8 @@
     color: var(--color-text-secondary);
 }
 
-#tooltip {
-    position: absolute;
-    padding: var(--spacing-sm);
+/* Alternative tooltip style */
+.tooltip-light {
     background: var(--color-tooltip-bg-light);
-    color: var(--color-text-light);
-    border-radius: var(--radius-sm);
-    pointer-events: none;
-    display: none;
     animation: scaleIn var(--duration-normal) var(--ease-bounce);
 } 

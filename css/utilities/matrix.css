@@ -1,3 +1,16 @@
+/* Matrix variables */
+:root {
+    /* Matrix dimensions */
+    --matrix-cell-size: 16px;
+    --matrix-cell-padding: 3px;
+    
+    /* Matrix margins */
+    --matrix-margin-top: 80px;
+    --matrix-margin-right: 20px;
+    --matrix-margin-bottom: 10px;
+    --matrix-margin-left: 80px;
+}
+
 /* Matrix dimension utilities */
 .matrix-cell-sm {
     width: calc(var(--matrix-cell-size) * 0.75) !important;
@@ -44,20 +57,69 @@
 }
 
 /* Matrix container utilities */
-.matrix-compact {
-    --matrix-cell-size: 12px;
-    --matrix-cell-padding: 2px;
+.matrix-container {
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md) auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    max-height: 85vh;
+    overflow: auto;
+    background: var(--color-background);
 }
 
-.matrix-normal {
-    --matrix-cell-size: 16px;
-    --matrix-cell-padding: 3px;
+/* Matrix SVG container */
+.matrix-svg {
+    margin: var(--matrix-margin-top) var(--matrix-margin-right) 
+            var(--matrix-margin-bottom) var(--matrix-margin-left);
 }
 
-.matrix-expanded {
-    --matrix-cell-size: 20px;
-    --matrix-cell-padding: 4px;
+/* Matrix cells */
+.cell {
+    fill: var(--color-cell-empty);
+    stroke: var(--color-cell-stroke);
+    stroke-width: 0.5px;
+    transition: var(--transition-matrix);
+    width: var(--matrix-cell-size);
+    height: var(--matrix-cell-size);
 }
+
+/* Cell states */
+.cell-empty {
+    fill: var(--color-cell-empty);
+    opacity: var(--opacity-faint);
+}
+
+.cell-filled { opacity: var(--opacity-default); }
+
+.cell-highlighted {
+    opacity: var(--opacity-full);
+    stroke: var(--color-cell-hover-stroke);
+    stroke-width: 1.5px;
+}
+
+.cell-dimmed { opacity: var(--opacity-light); }
+
+.cell:hover {
+    stroke: var(--color-cell-hover-stroke);
+    stroke-width: 1.5px;
+    cursor: pointer;
+    opacity: var(--opacity-full) !important;
+}
+
+/* Matrix labels */
+.matrix-label {
+    fill: var(--color-text-primary);
+    transition: var(--transition-default);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-xs);
+}
+
+.matrix-label.highlighted {
+    fill: var(--color-highlight);
+    font-weight: var(--font-weight-bold);
+}
+
+.matrix-label.dimmed { fill: var(--color-dimmed); }
 
 /* Matrix responsive utilities */
 .matrix-responsive {

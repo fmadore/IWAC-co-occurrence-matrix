@@ -12,7 +12,7 @@
     --ease-in: ease-in;
     --ease-out: ease-out;
     
-    /* Transitions */
+    /* Common transitions */
     --transition-default: all var(--duration-normal) var(--ease-default);
     --transition-fast: all var(--duration-fast) var(--ease-default);
     --transition-bounce: all var(--duration-slow) var(--ease-bounce);
@@ -20,7 +20,7 @@
                         stroke var(--duration-fast) var(--ease-out);
 }
 
-/* Common animations */
+/* Keyframe animations */
 @keyframes fadeIn {
     from { opacity: var(--opacity-none); }
     to { opacity: var(--opacity-full); }
@@ -37,7 +37,7 @@
     }
 }
 
-/* Animation classes */
+/* Animation utilities */
 .animate-fade-in {
     animation: fadeIn var(--duration-normal) var(--ease-default);
 }
@@ -46,7 +46,7 @@
     animation: scaleIn var(--duration-normal) var(--ease-bounce);
 }
 
-/* Transition classes */
+/* Transition utilities */
 .transition-none {
     transition: none !important;
 }
