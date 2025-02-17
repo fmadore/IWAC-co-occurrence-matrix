@@ -43,115 +43,57 @@ An interactive visualization tool that displays term co-occurrences in newspaper
 
 ```
 IWAC-co-occurrence-matrix/
-├── data/
-│   └── cooccurrence.json     # Co-occurrence data for different window types
+├── data/                   # JSON data files for each organization
 ├── js/
-│   ├── config.js            # Configuration settings
-│   ├── utils.js             # Utility functions
-│   ├── dataProcessor.js     # Data processing functions
-│   ├── visualComponents.js  # D3.js visualization components
-│   ├── cellInteractions.js  # Cell interaction handlers
-│   ├── sortingUtils.js      # Matrix sorting functionality
+│   ├── config.js          # Configuration settings
+│   ├── utils.js           # Utility functions
+│   ├── dataProcessor.js   # Data processing functions
+│   ├── visualComponents.js # D3.js visualization components
+│   ├── cellInteractions.js # Cell interaction handlers
+│   ├── sortingUtils.js    # Matrix sorting functionality
 │   ├── MatrixVisualization.js # Main visualization class
-│   └── main.js             # Application entry point
+│   └── main.js           # Application entry point
 ├── css/
-│   ├── main.css            # Main CSS file importing all modules
-│   │
-│   ├── Design Tokens:
-│   ├── colors.css          # Color system and themes
-│   ├── typography.css      # Typography system
-│   ├── layout.css          # Spacing and structural styles
-│   ├── animations.css      # Animations and transitions
-│   │
-│   ├── Utilities:
-│   ├── utilities/
-│   │   ├── display.css     # Display and flexbox utilities
-│   │   ├── spacing.css     # Margin and padding utilities
-│   │   ├── text.css        # Typography utilities
-│   │   ├── visual.css      # Borders, backgrounds, shadows
-│   │   ├── layout.css      # Positioning and dimensions
-│   │   ├── interaction.css # Visibility and interactions
-│   │   └── matrix.css      # Matrix-specific utilities
-│   │
-│   ├── Components:
-│   ├── base.css            # Base styles and layout
-│   ├── matrix.css          # Matrix-specific styles
-│   ├── tooltip.css         # Tooltip styles
-│   └── scrollbar.css       # Cross-browser scrollbar styles
-├── index.html             # Main HTML file
-└── README.md              # Project documentation
+│   ├── main.css          # Main CSS file importing all modules
+│   ├── base.css          # Base styles and layout
+│   ├── colors.css        # Color system
+│   ├── typography.css    # Typography system
+│   ├── layout.css        # Layout and spacing
+│   ├── animations.css    # Animations and transitions
+│   ├── tooltip.css       # Tooltip styles
+│   ├── scrollbar.css     # Cross-browser scrollbar styles
+│   └── utilities/        # Utility classes
+│       ├── display.css   # Display and flexbox utilities
+│       ├── spacing.css   # Margin and padding utilities
+│       ├── text.css      # Typography utilities
+│       ├── visual.css    # Borders, backgrounds, shadows
+│       ├── interaction.css # Visibility and interactions
+│       └── matrix.css    # Matrix-specific utilities
+├── index.html           # Main HTML file
+└── README.md            # Project documentation
 ```
 
 ## CSS Architecture
 
-The project follows a utility-first CSS architecture with a modular design system:
+The project uses a modular CSS architecture with:
 
-### Design Tokens
-- `colors.css`: Color system with semantic variables
-- `typography.css`: Typography scale and text styles
-- `layout.css`: Spacing, sizing, and layout tokens
-- `animations.css`: Animation durations and timing functions
+### Core Styles
+- `base.css`: Base styles and layout
+- `colors.css`: Color system
+- `typography.css`: Typography system
+- `layout.css`: Layout and spacing
+- `animations.css`: Animations and transitions
+- `tooltip.css`: Tooltip components
+- `scrollbar.css`: Cross-browser scrollbar styles
 
-### Utility Modules
-1. **Display (`utilities/display.css`)**
-   - Display properties
-   - Flexbox utilities
-   
-2. **Spacing (`utilities/spacing.css`)**
-   - Margin utilities
-   - Padding utilities
-   
-3. **Typography (`utilities/text.css`)**
-   - Text alignment
-   - Font sizes
-   - Font weights
-   - Text colors
-   
-4. **Visual (`utilities/visual.css`)**
-   - Borders and radius
-   - Backgrounds
-   - Shadows
-   
-5. **Layout (`utilities/layout.css`)**
-   - Positioning
-   - Width and height
-   - Z-index layers
-   - Overflow behavior
-   
-6. **Interaction (`utilities/interaction.css`)**
-   - Visibility states
-   - Pointer events
-   - Transitions
-   
-7. **Matrix (`utilities/matrix.css`)**
-   - Matrix-specific sizing
-   - Matrix spacing
-   - Responsive adaptations
-   - Layout presets
-
-### Matrix-Specific Utilities
-
-The matrix visualization includes specialized utility classes:
-
-```css
-/* Size variations */
-.matrix-cell-sm
-.matrix-cell-md
-.matrix-cell-lg
-
-/* Layout presets */
-.matrix-compact
-.matrix-normal
-.matrix-expanded
-
-/* Responsive behavior */
-.matrix-responsive
-.matrix-auto-scroll
-
-/* Density options */
-.matrix-dense
-.matrix-sparse
-```
+### Utility Classes
+Located in the `utilities/` directory:
+- `display.css`: Display and flexbox utilities
+- `spacing.css`: Margin and padding utilities
+- `text.css`: Typography utilities
+- `visual.css`: Borders, backgrounds, shadows
+- `interaction.css`: Visibility and interactions
+- `matrix.css`: Matrix-specific utilities
 
 ## Dependencies
 
@@ -162,7 +104,7 @@ The matrix visualization includes specialized utility classes:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/IWAC-co-occurrence-matrix.git
+   git clone https://github.com/fmadore/IWAC-co-occurrence-matrix.git
    cd IWAC-co-occurrence-matrix
    ```
 
@@ -183,11 +125,3 @@ The visualization is compatible with:
 - Modern browsers (Chrome, Firefox, Edge, Safari)
 - Includes fallbacks for scrollbar styling across different browsers
 - Responsive design that works on different screen sizes
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
