@@ -13,7 +13,7 @@ export const visualComponents = {
             .attr("width", width)
             .attr("height", height)
             .attr("viewBox", `0 0 ${width} ${height}`)
-            .attr("preserveAspectRatio", "xMidYMid meet");
+            .attr("preserveAspectRatio", "xMinYMid meet");
 
         // Create main group with proper margin transform
         return svg.append("g")

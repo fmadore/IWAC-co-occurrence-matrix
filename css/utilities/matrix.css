@@ -6,7 +6,7 @@
     
     /* Matrix margins */
     --matrix-margin-top: 40px;
-    --matrix-margin-right: 10px;
+    --matrix-margin-right: 5px;
     --matrix-margin-bottom: 10px;
     --matrix-margin-left: 60px;
 }
@@ -65,6 +65,8 @@
     max-height: 90vh;
     overflow: auto;
     background: var(--color-background);
+    width: fit-content;
+    max-width: calc(100% - var(--spacing-md) * 2);
 }
 
 /* Matrix content */
@@ -76,7 +78,8 @@
 /* Matrix SVG container */
 .matrix-svg {
     margin: var(--matrix-margin-top) var(--matrix-margin-right) 
-            var(--matrix-margin-bottom) var(--matrix-margin-left);
+            var(--matrix-margin-bottom) 0;
+    display: block;
 }
 
 /* Matrix cells */
@@ -133,6 +136,7 @@
     --matrix-cell-padding: clamp(1px, 0.3vw, 3px);
     --matrix-margin-top: clamp(40px, 15vw, 160px);
     --matrix-margin-left: clamp(60px, 8vw, 100px);
+    --matrix-margin-right: clamp(5px, 1vw, 10px);
 }
 
 /* Matrix layout utilities */
